@@ -26,7 +26,9 @@ from werkzeug.exceptions import HTTPException
 
 from consts import (
     CUSTOM_UI_DATASTORE_IDS,
+    CUSTOM_UI_LLM_DATASTORE_IDS,
     LOCATION,
+    REGION,
     PROJECT_ID,
     VALID_LANGUAGES,
     WIDGET_CONFIGS,
@@ -38,6 +40,7 @@ from genappbuilder_utils import (
     list_documents,
     recommend_personalize,
     search_enterprise_search,
+    search_enterprise_search_llm
 )
 
 app = Flask(__name__)
@@ -54,6 +57,11 @@ NAV_LINKS = [
     {
         "link": "/search",
         "name": "Enterprise Search - Rail Safety - API",
+        "icon": "build",
+    },
+    {
+        "link": "/search-llm",
+        "name": "Enterprise Search - Rail Safety - with LLM",
         "icon": "build",
     },
     # {
@@ -133,6 +141,49 @@ def search_genappbuilder() -> str:
         request_url=request_url,
         raw_request=raw_request,
         raw_response=raw_response,
+    )
+
+
+@app.route("/search-llm", methods=["GET"])
+def searchllm() -> str:
+    """
+    Web Server, Homepage for Search - LLM
+    """
+    return render_template(
+        "search-llm.html",
+        nav_links=NAV_LINKS,
+    )
+
+
+@app.route("/search-llm_genappbuilder", methods=["POST"])
+def searchllm_genappbuilder() -> str:
+    """
+    Handle Search Gen App Builder Request
+    """
+    search_query = request.form.get("search_query", "")
+
+    # Check if POST Request includes search query
+    if not search_query:
+        return render_template(
+            "search-llm.html",
+            nav_links=NAV_LINKS,
+            message_error="No query provided",
+        )
+
+    results = search_enterprise_search_llm(
+        project_id=PROJECT_ID,
+        region=REGION,
+        search_engine_id=CUSTOM_UI_LLM_DATASTORE_IDS[0]["datastore_id"],
+        search_query=search_query,
+    )
+
+    print(results)
+
+    return render_template(
+        "search-llm.html",
+        nav_links=NAV_LINKS,
+        message_success=search_query,
+        results=results
     )
 
 

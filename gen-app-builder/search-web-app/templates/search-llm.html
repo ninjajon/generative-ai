@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500,700" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/default.min.css" />
+    <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}" />
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='favicon.ico')}}" />
+    <title>Enterprise Search</title>
+</head>
+
+<body>
+    <div id="main-nav-bar" class="mdc-tab-bar" role="tablist">
+        <div class="mdc-tab-scroller">
+            <div class="mdc-tab-scroller__scroll-area">
+                <div class="mdc-tab-scroller__scroll-content">
+                    {% for n in nav_links %}
+                    <a class="tab-nav" href="{{n.link}}">
+                        <button class="mdc-tab mdc-tab--active nav-button" role="tab" tabindex="0">
+                            <span class="mdc-tab__content">
+                                <span class="mdc-tab__icon material-icons" aria-hidden="true">{{n.icon}}</span>
+                                <span class="mdc-tab__text-label">{{n.name}}</span>
+                            </span>
+                        </button>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="header">
+        <a href="/">
+            <img class="gen-app-builder-logo" src="{{url_for('static', filename='gen-app-builder-logo.svg')}}"
+                alt="Generative AI App Builder" />
+        </a>
+        <h1>Enterprise Search</h1>
+        <h2>Rail Safety</h2>
+        <h3>Unstructured data with LLM (text-bison@001)</h3>
+    </section>
+    <main id="active-area">
+        <form class="search-form" action="/search-llm_genappbuilder" method="post">
+            <!-- Search Box -->
+            <div class="mdc-text-field mdc-text-field--outlined query-field">
+                <input class="mdc-text-field__input" id="query-input" name="search_query" required />
+                <div class="mdc-notched-outline">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                        <label for="text-field-hero-input" class="mdc-floating-label">What are the main principles of
+                            rail
+                            safety?</label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
+            </div>
+            <!-- Search Button -->
+            <div class="button-container">
+                <button type="submit" class="search-button mdc-button mdc-button--outlined mdc-button--icon-leading">
+                    <span class="mdc-button__ripple"></span>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">search</i>
+                    <span class="mdc-button__label">Search</span>
+                </button>
+            </div>
+        </form>
+        {% if message_error %}
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3"></div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+                    <pre>{{message_error}}</pre>
+                </div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3"></div>
+            </div>
+        </div>
+        {% endif %}
+        {% if message_success %}
+        <div class="tab-content">
+            <p>{{results}}</p>
+            <!-- {% for result in results %}
+            <p class="mdc-typography mdc-typography--headline6">
+                {{result["result"]}}
+            </p>
+            {% endfor %} -->
+        </div>
+        {% endif %}
+    </main>
+</body>
+
+<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+<script src="{{url_for('static', filename='search.js')}}"></script>
+
+</html>

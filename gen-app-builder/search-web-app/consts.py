@@ -16,6 +16,7 @@
 
 PROJECT_ID = "jo-search-2-aygj"
 LOCATION = "global"
+REGION = "us-central1"
 
 WIDGET_CONFIGS = [
     {
@@ -29,6 +30,13 @@ CUSTOM_UI_DATASTORE_IDS = [
     {
         "name": "Rail Safety",
         "datastore_id": "websites-public_1691535238155"
+    }
+]
+
+CUSTOM_UI_LLM_DATASTORE_IDS = [
+    {
+        "name": "Rail Safety",
+        "datastore_id": "unstructured-internal-docs_1691496411334"
     }
 ]
 
