@@ -1,7 +1,11 @@
 {
   "hosting": {
-    "target": "your-firebase-app-name",
+    "target": "jo-search-2-aygj", 
     "public": "build",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
   }
 }

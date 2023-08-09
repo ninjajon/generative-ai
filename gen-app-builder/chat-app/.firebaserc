@@ -1,12 +1,19 @@
 {
   "projects": {
-    "default": "your-project-id"
+    "default": "jo-search-2-aygj"
   },
   "targets": {
     "your-project-id": {
       "hosting": {
         "your-firebase-app-name": [
           "your-firebase-app-name"
+        ]
+      }
+    },
+    "jo-search-2-aygj": {
+      "hosting": {
+        "jo-search-2-aygj": [
+          "jo-search-2-aygj"
         ]
       }
     }
