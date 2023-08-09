@@ -14,42 +14,36 @@
 
 """ Gen App Builder Demo Constant Definitions"""
 
-PROJECT_ID = "YOUR-PROJECT-ID"
+PROJECT_ID = "jo-search-2-aygj"
 LOCATION = "global"
 
 WIDGET_CONFIGS = [
     {
-        "name": "Contracts",
-        "config_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "placeholder": "What is the SLA?",
-    },
-    {
-        "name": "Finance - Earnings Reports",
-        "config_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "placeholder": "What was Google's revenue in 2021?",
-    },
+        "name": "Rail Safety",
+        "config_id": "56324c91-bfda-411c-aefb-8642107e020b",
+        "placeholder": "What are the main principles of rail safety?"
+    }
 ]
 
 CUSTOM_UI_DATASTORE_IDS = [
     {
-        "name": "Google Cloud Website",
-        "datastore_id": "google-cloud-site-search_xxxxxxxx",
-    },
+        "name": "Rail Safety",
+        "datastore_id": "websites-public_1691535238155"
+    }
 ]
-
 
 IMAGE_SEARCH_DATASTORE_IDs = [
     {
         "name": "Google Merchandise Store",
-        "datastore_id": "google-merch-store_xxxxxxx",
+        "datastore_id": "google-merch-store_xxxxxxx"
     }
 ]
 
 RECOMMENDATIONS_DATASTORE_IDs = [
     {
         "name": "ArXiv Natural Language Papers",
-        "datastore_id": "arxiv_xxxxxxxxxx",
-        "engine_id": "arxiv-personalize_xxxxxxxx",
+        "datastore_id": "unstructured-internal-docs_1691496411334",
+        "engine_id": "unstructured-internal-docs_1691496411334"
     }
 ]
 

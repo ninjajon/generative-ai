@@ -50,23 +50,23 @@ FORM_OPTIONS = {
 }
 
 NAV_LINKS = [
-    {"link": "/", "name": "Enterprise Search - Widgets", "icon": "widgets"},
+    {"link": "/", "name": "Enterprise Search - Rail Safety - Widget", "icon": "widgets"},
     {
         "link": "/search",
-        "name": "Enterprise Search - Custom UI",
+        "name": "Enterprise Search - Rail Safety - API",
         "icon": "build",
     },
-    {
-        "link": "/image-search",
-        "name": "Image Search",
-        "icon": "image",
-    },
-    {
-        "link": "/recommend",
-        "name": "Recommendations",
-        "icon": "recommend",
-    },
-    {"link": "/ekg", "name": "Enterprise Knowledge Graph", "icon": "scatter_plot"},
+    # {
+    #     "link": "/image-search",
+    #     "name": "Image Search",
+    #     "icon": "image",
+    # },
+    # {
+    #     "link": "/recommend",
+    #     "name": "Recommendations",
+    #     "icon": "recommend",
+    # },
+    # {"link": "/ekg", "name": "Enterprise Knowledge Graph", "icon": "scatter_plot"},
 ]
 
 RECOMMENDATIONS_DOCUMENTS = list_documents(

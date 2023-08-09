@@ -69,6 +69,8 @@ def search_enterprise_search(
         serving_config="default_config",
     )
 
+    print(serving_config)
+
     # Configuration options for search
     content_search_spec = discoveryengine.SearchRequest.ContentSearchSpec(
         snippet_spec=discoveryengine.SearchRequest.ContentSearchSpec.SnippetSpec(
@@ -106,8 +108,11 @@ def search_enterprise_search(
         )
 
     try:
+        print("3")
         response_pager = client.search(request)
-    except Exception:
+        print("4")
+    except Exception as e:
+        print("error: ", e.__traceback__)
         raise Exception("An internal error occured")
 
     response = discoveryengine.SearchResponse(

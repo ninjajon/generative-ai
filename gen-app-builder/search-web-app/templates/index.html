@@ -25,7 +25,7 @@
       type="image/x-icon"
       href="{{url_for('static', filename='favicon.ico')}}"
     />
-    <title>Generative AI App Builder - Enterprise Search Demo</title>
+    <title>Enterprise Search</title>
   </head>
 
   <body>
@@ -61,9 +61,11 @@
           alt="Generative AI App Builder"
         />
       </a>
-      <h1>Enterprise Search Demo - Widgets</h1>
+      <h1>Enterprise Search</h1>
+      <h2>Rail Safety</h2>
+      <h3>Unstructured data with summarization</h3>
       <p>
-        Click on one of the text boxes to open up a full-page widget for the search engine.
+        Click in the text box to open up a full-page widget for the search engine.
       </p>
     </section>
     <main>
@@ -77,7 +79,7 @@
         triggerId="{{s.name|lower|replace(' ', '-')}}"
       >
       </gen-search-widget>
-      <div class="search-engine-name"><b>{{s.name}}</b></div>
+      <!-- <div class="search-engine-name"><b>{{s.name}}</b></div> -->
 
       <!-- Element that opens the widget on click. It does not have to be an input -->
       <div class="mdc-text-field mdc-text-field--outlined query-field">
@@ -97,7 +99,7 @@
       </div>
       {% endfor %}
     </main>
-    <section class="footer">
+    <!-- <section class="footer">
       <p>
         Made by <a href="https://github.com/holtskinner">holtskinner@</a> -
         Source on
@@ -113,7 +115,7 @@
         >
         on <a href="https://cloud.google.com/">Google Cloud</a>
       </p>
-    </section>
+    </section> -->
   </body>
 
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
