@@ -280,9 +280,10 @@ def search_enterprise_search_llm(
     project_id: str,
     region: str,
     search_engine_id: str,
+    model: str,
     search_query: Optional[str] = None,
 ):
-    model = "text-bison@001"
+
     vertexai.init(project=project_id, location=region)
     llm = VertexAI(model_name=model)
 

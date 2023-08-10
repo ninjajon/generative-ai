@@ -36,22 +36,8 @@ CUSTOM_UI_DATASTORE_IDS = [
 CUSTOM_UI_LLM_DATASTORE_IDS = [
     {
         "name": "Rail Safety",
-        "datastore_id": "unstructured-internal-docs_1691496411334"
-    }
-]
-
-IMAGE_SEARCH_DATASTORE_IDs = [
-    {
-        "name": "Google Merchandise Store",
-        "datastore_id": "google-merch-store_xxxxxxx"
-    }
-]
-
-RECOMMENDATIONS_DATASTORE_IDs = [
-    {
-        "name": "ArXiv Natural Language Papers",
         "datastore_id": "unstructured-internal-docs_1691496411334",
-        "engine_id": "unstructured-internal-docs_1691496411334"
+        "model": "text-bison@001"
     }
 ]
 
