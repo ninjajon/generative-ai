@@ -19,6 +19,7 @@ import sys
 import vertexai
 from langchain.llms import VertexAI
 from langchain.retrievers import GoogleCloudEnterpriseSearchRetriever
+from langchain.chains import RetrievalQA
 
 from os.path import basename
 from typing import Dict, List, Optional, Tuple
@@ -281,27 +282,21 @@ def search_enterprise_search_llm(
     search_engine_id: str,
     search_query: Optional[str] = None,
 ):
-    print(search_engine_id)
     model = "text-bison@001"
-    print("1")
     vertexai.init(project=project_id, location=region)
     llm = VertexAI(model_name=model)
-    print("2")
+
     retriever = GoogleCloudEnterpriseSearchRetriever(
         project_id=project_id, search_engine_id=search_engine_id
     )
-    print("3")
-    from langchain.chains import RetrievalQA
 
     retrieval_qa = RetrievalQA.from_chain_type(
-        llm=llm, chain_type="refine", retriever=retriever, return_source_documents=True
+        llm=llm, chain_type="refine", retriever=retriever, return_source_documents=False
     )
 
-    print("4")
     try:
         results = retrieval_qa({"query": search_query})
     except Exception as e:
         print("error:", e)
-    print(results["result"])
-    
-    return results["result"]
+
+    return results

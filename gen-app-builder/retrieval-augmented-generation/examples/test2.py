@@ -20,7 +20,7 @@ def search_enterprise_search_llm(
     from langchain.chains import RetrievalQA
 
     retrieval_qa = RetrievalQA.from_chain_type(
-        llm=llm, chain_type="refine", retriever=retriever, return_source_documents=True
+        llm=llm, chain_type="stuff", retriever=retriever, return_source_documents=True
     )
     #print(retrieval_qa)
     print("4")

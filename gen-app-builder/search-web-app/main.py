@@ -62,7 +62,7 @@ NAV_LINKS = [
     {
         "link": "/search-llm",
         "name": "Enterprise Search - Rail Safety - with LLM",
-        "icon": "build",
+        "icon": "science",
     },
     # {
     #     "link": "/image-search",
@@ -177,7 +177,7 @@ def searchllm_genappbuilder() -> str:
         search_query=search_query,
     )
 
-    print(results)
+    #print(results)
 
     return render_template(
         "search-llm.html",
