@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans:300,400,500,700" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/default.min.css" />
+    <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}" />
+    <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='favicon.ico')}}" />
+    <title>Enterprise Search + Generative AI</title>
+</head>
+
+<body>
+    <div id="main-nav-bar" class="mdc-tab-bar" role="tablist">
+        <div class="mdc-tab-scroller">
+            <div class="mdc-tab-scroller__scroll-area">
+                <div class="mdc-tab-scroller__scroll-content">
+                    {% for n in nav_links %}
+                    <a class="tab-nav" href="{{n.link}}">
+                        <button class="mdc-tab mdc-tab--active nav-button" role="tab" tabindex="0">
+                            <span class="mdc-tab__content">
+                                <span class="mdc-tab__icon material-icons" aria-hidden="true">{{n.icon}}</span>
+                                <span class="mdc-tab__text-label">{{n.name}}</span>
+                            </span>
+                        </button>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="header">
+        <a href="/">
+            <img class="gen-app-builder-logo" src="{{url_for('static', filename='gen-app-builder-logo.svg')}}"
+                alt="Generative AI App Builder" />
+        </a>
+        <h1>Enterprise Search + Generative AI</h1>
+        <h2>Rail Safety (unstructured data)</h2>
+    </section>
+    <main id="active-area">
+        <form class="search-form" action="/search-llm_genappbuilder" method="post">
+            <!-- Search Box -->
+            <div class="mdc-text-field mdc-text-field--outlined query-field">
+                <input class="mdc-text-field__input" id="query-input" name="search_query" required />
+                <div class="mdc-notched-outline">
+                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__notch">
+                        <label for="text-field-hero-input" class="mdc-floating-label">Search here</label>
+                    </div>
+                    <div class="mdc-notched-outline__trailing"></div>
+                </div>
+            </div>
+            <!-- Search Button -->
+            <div class="button-container">
+                <button type="submit" class="search-button mdc-button mdc-button--outlined mdc-button--icon-leading">
+                    <span class="mdc-button__ripple"></span>
+                    <i class="material-icons mdc-button__icon" aria-hidden="true">search</i>
+                    <span class="mdc-button__label">Search</span>
+                </button>
+            </div>
+        </form>
+        {% if message_error %}
+        <div class="mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3"></div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+                    <pre>{{message_error}}</pre>
+                </div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-3"></div>
+            </div>
+        </div>
+        {% endif %}
+        {% if message_success %}
+        <div class="llm-answer">
+            <div>
+                <p>{{results["result"]}}</p>
+            </div>
+        </div>
+        {% endif %}
+    </main>
+    <section class="footer">
+        </br>
+        </br>
+        <p>
+            Powered by Generative AI App Builder (Enterprise Search) and Vertex AI <a
+                href="https://cloud.google.com/vertex-ai/docs/generative-ai/learn/models?_ga=2.159961210.-67388917.1685724208">(test-bison@001)</a>
+            on Google Cloud</a>
+        </p>
+    </section>
+</body>
+
+<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/highlight.min.js"></script>
+<script src="{{url_for('static', filename='search.js')}}"></script>
+
+</html>

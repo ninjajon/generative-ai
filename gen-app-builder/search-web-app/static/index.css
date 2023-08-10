@@ -49,12 +49,16 @@ body {
 .button-container {
   display: flex;
   justify-content: flex-end;
-  width: 300px;
-  margin: auto;
+  /* width: 300px; */
+  width: 80%; 
+  margin: 0 auto;
+  /* margin: auto; */
+
 }
 
 .button-container button {
   margin: 3px;
+  margin: 0 auto;
 }
 
 .entity-checkboxes {
@@ -196,4 +200,9 @@ a:active {
 
 .file-upload-input {
   display: none;
+}
+
+.llm-answer{
+  width: 80%;
+  margin: 0 auto;
 }

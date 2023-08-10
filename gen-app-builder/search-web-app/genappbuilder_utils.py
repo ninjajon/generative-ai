@@ -13,6 +13,14 @@
 # limitations under the License.
 
 """Generative AI App Builder Utilities"""
+import os
+import sys
+
+import vertexai
+from langchain.llms import VertexAI
+from langchain.retrievers import GoogleCloudEnterpriseSearchRetriever
+from langchain.chains import RetrievalQA
+
 from os.path import basename
 from typing import Dict, List, Optional, Tuple
 
@@ -267,3 +275,29 @@ def get_personalize_results(
         }
         for result in response.results
     ]
+
+def search_enterprise_search_llm(
+    project_id: str,
+    region: str,
+    search_engine_id: str,
+    model: str,
+    search_query: Optional[str] = None,
+):
+
+    vertexai.init(project=project_id, location=region)
+    llm = VertexAI(model_name=model)
+
+    retriever = GoogleCloudEnterpriseSearchRetriever(
+        project_id=project_id, search_engine_id=search_engine_id
+    )
+
+    retrieval_qa = RetrievalQA.from_chain_type(
+        llm=llm, chain_type="refine", retriever=retriever, return_source_documents=False
+    )
+
+    try:
+        results = retrieval_qa({"query": search_query})
+    except Exception as e:
+        print("error:", e)
+
+    return results

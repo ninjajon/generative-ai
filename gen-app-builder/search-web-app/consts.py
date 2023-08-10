@@ -16,6 +16,7 @@
 
 PROJECT_ID = "jo-search-2-aygj"
 LOCATION = "global"
+REGION = "us-central1"
 
 WIDGET_CONFIGS = [
     {
@@ -32,18 +33,11 @@ CUSTOM_UI_DATASTORE_IDS = [
     }
 ]
 
-IMAGE_SEARCH_DATASTORE_IDs = [
+CUSTOM_UI_LLM_DATASTORE_IDS = [
     {
-        "name": "Google Merchandise Store",
-        "datastore_id": "google-merch-store_xxxxxxx"
-    }
-]
-
-RECOMMENDATIONS_DATASTORE_IDs = [
-    {
-        "name": "ArXiv Natural Language Papers",
+        "name": "Rail Safety",
         "datastore_id": "unstructured-internal-docs_1691496411334",
-        "engine_id": "unstructured-internal-docs_1691496411334"
+        "model": "text-bison@001"
     }
 ]
 
