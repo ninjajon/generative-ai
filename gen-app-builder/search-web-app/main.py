@@ -53,15 +53,19 @@ FORM_OPTIONS = {
 }
 
 NAV_LINKS = [
-    {"link": "/", "name": "Enterprise Search - Rail Safety - Widget", "icon": "widgets"},
+    {
+        "link": "/", 
+        "name": "Search | Rail Safety | Widget", 
+        "icon": "widgets"
+    },
     {
         "link": "/search",
-        "name": "Enterprise Search - Rail Safety - API",
+        "name": "Search | Rail Safety | Custom",
         "icon": "build",
     },
     {
         "link": "/search-llm",
-        "name": "Enterprise Search - Rail Safety - with LLM",
+        "name": "Search + GenAI | Rail Safety | Custom",
         "icon": "science",
     },
     # {

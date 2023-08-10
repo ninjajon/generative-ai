@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.7.0/styles/default.min.css" />
     <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}" />
     <link rel="icon" type="image/x-icon" href="{{url_for('static', filename='favicon.ico')}}" />
-    <title>Enterprise Search</title>
+    <title>Enterprise Search + Generative AI</title>
 </head>
 
 <body>
@@ -39,9 +39,8 @@
             <img class="gen-app-builder-logo" src="{{url_for('static', filename='gen-app-builder-logo.svg')}}"
                 alt="Generative AI App Builder" />
         </a>
-        <h1>Enterprise Search</h1>
-        <h2>Rail Safety</h2>
-        <h3>Unstructured data with LLM (text-bison@001)</h3>
+        <h1>Enterprise Search + Generative AI</h1>
+        <h2>Rail Safety (unstructured data)</h2>
     </section>
     <main id="active-area">
         <form class="search-form" action="/search-llm_genappbuilder" method="post">
@@ -51,7 +50,7 @@
                 <div class="mdc-notched-outline">
                     <div class="mdc-notched-outline__leading"></div>
                     <div class="mdc-notched-outline__notch">
-                        <!-- <label for="text-field-hero-input" class="mdc-floating-label"></label> -->
+                        <label for="text-field-hero-input" class="mdc-floating-label">Search here</label>
                     </div>
                     <div class="mdc-notched-outline__trailing"></div>
                 </div>
@@ -77,11 +76,22 @@
         </div>
         {% endif %}
         {% if message_success %}
-        <div class="tab-content">
-            <div>{{results["result"]}}</div>
+        <div class="llm-answer">
+            <div>
+                <p>{{results["result"]}}</p>
+            </div>
         </div>
         {% endif %}
     </main>
+    <section class="footer">
+        </br>
+        </br>
+        <p>
+            Powered by Generative AI App Builder (Enterprise Search) and Vertex AI <a
+                href="https://cloud.google.com/vertex-ai/docs/generative-ai/learn/models?_ga=2.159961210.-67388917.1685724208">(test-bison@001)</a>
+            on Google Cloud</a>
+        </p>
+    </section>
 </body>
 
 <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>

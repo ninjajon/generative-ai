@@ -39,12 +39,7 @@
         alt="Generative AI App Builder" />
     </a>
     <h1>Enterprise Search</h1>
-    <h2>Rail Safety</h2>
-    <h3>Websites in used as data sources:</h3>
-    <ul style=list-style-type:none;>
-      <li>https://railroads.dot.gov/railroad-safety/</li>
-      <li>https://tc.canada.ca/en/rail-transportation/rail-safety-canada/</li>
-    </ul>
+    <h2>Rail Safety (public websites)</h2>
   </section>
   <main id="active-area">
     <form class="search-form" action="/search_genappbuilder" method="post">
@@ -54,8 +49,7 @@
         <div class="mdc-notched-outline">
           <div class="mdc-notched-outline__leading"></div>
           <div class="mdc-notched-outline__notch">
-            <label for="text-field-hero-input" class="mdc-floating-label">What are the main principles of rail
-              safety?</label>
+            <label for="text-field-hero-input" class="mdc-floating-label">Search here</label>
           </div>
           <div class="mdc-notched-outline__trailing"></div>
         </div>
@@ -146,59 +140,57 @@
         </div>
         {% endfor %}
       </div>
-      <!-- <div id="json-tab" class="tab-hidden">
-          {% if request_url %}
-          <div class="mdc-layout-grid">
-            <div class="mdc-layout-grid__inner">
-              <div
-                class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2"
-              ></div>
-              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8">
-                <b>Request URL:</b>
-                <pre><code class="language-shell" lang="shell">{{request_url}}</code></pre>
-              </div>
-              <div
-                class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2"
-              ></div>
+      <div id="json-tab" class="tab-hidden">
+        {% if request_url %}
+        <div class="mdc-layout-grid">
+          <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2"></div>
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8">
+              <b>Request URL:</b>
+              <pre><code class="language-shell" lang="shell">{{request_url}}</code></pre>
             </div>
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-2"></div>
           </div>
-          {% endif %}
-          <div class="mdc-layout-grid">
-            <div class="mdc-layout-grid__inner">
-              {% if raw_request %}
-              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
-                <b>Request Body:</b>
-                <pre><code class="language-json" lang="json">{{raw_request}}</code></pre>
-              </div>
-              {% endif %} {% if raw_response %}
-              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
-                <b>Response Body:</b>
-                <pre><code class="language-json" lang="json">{{raw_response}}</code></pre>
-              </div>
-              {% endif %}
+        </div>
+        {% endif %}
+        <div class="mdc-layout-grid">
+          <div class="mdc-layout-grid__inner">
+            {% if raw_request %}
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+              <b>Request Body:</b>
+              <pre><code class="language-json" lang="json">{{raw_request}}</code></pre>
             </div>
-          </div> -->
-    </div>
+            {% endif %} {% if raw_response %}
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+              <b>Response Body:</b>
+              <pre><code class="language-json" lang="json">{{raw_response}}</code></pre>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
     </div>
     {% endif %}
   </main>
-  <!-- <section class="footer">
-      <p>
-        Made by <a href="https://github.com/holtskinner">holtskinner@</a> -
-        Source on
-        <a
-          href="https://github.com/GoogleCloudPlatform/generative-ai/tree/main/gen-app-builder/search-web-app"
-          >GitHub</a
-        >
-      </p>
-      <p>
-        Powered by
-        <a href="https://cloud.google.com/generative-ai-app-builder"
-          >Generative AI App Builder</a
-        >
-        on <a href="https://cloud.google.com/">Google Cloud</a>
-      </p>
-    </section> -->
+  <section class="footer">
+    </br>
+    </br>
+    <p>
+      Powered by Generative AI App Builder (Enterprise Search) on Google Cloud</a>
+    </p>
+    </br>
+    </br>
+    <ul style="list-style-type:none; width: 50%; margin: 0 auto;">
+      <li style="width: 100%; text-align: left;">Data sources (Websites):</li>
+      </br>
+      <li style="width: 100%; text-align: left; padding-left: 10px;"><a
+          href="https://railroads.dot.gov/railroad-safety/">https://railroads.dot.gov/railroad-safety/</a></li>
+      <li style="width: 100%; text-align: left; padding-left: 10px;"><a
+          href="https://railroads.dot.gov/railroad-safety/">https://tc.canada.ca/en/rail-transportation/rail-safety-canada/</a>
+      </li>
+      </li>
+    </ul>
+  </section>
 </body>
 
 <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
